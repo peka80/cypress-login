@@ -97,6 +97,7 @@ describe('login test', () => {
     cy.get('#password').type('peksel2002');
     cy.get('button[type="submit"]').click();
   });
+
   // it('logout', () => {
   //   // cy.wait(4000);
   //   // cy.get('.nav-link').eq(3).click();
