@@ -40,7 +40,7 @@ describe('POM register', () => {
     cy.wait(2000);
   });
 
-  xit('register with valid credentials', () => {
+  it('register with valid credentials', () => {
     register.regUser(userData.randomName, userData.randomLastName, userData.randomEmail, userData.randomPassword, userData.randomPassword)
   });
 
