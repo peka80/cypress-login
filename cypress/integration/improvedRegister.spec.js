@@ -23,9 +23,9 @@ describe('registration test', () => {
 
     cy.get(Locators.Registration.firstName).type(userData.firstName);
     cy.get(Locators.Registration.lastName).type(userData.lastName);
-    cy.get(Locators.Registration.email).type('1' + userData.randomEmail);
-    cy.get(Locators.Registration.passReg).type(userData.randomPassword);
-    cy.get(Locators.Registration.passRegConfirm).type(userData.randomPassword);
+    cy.get(Locators.Registration.email).type(userData.randomEmail);
+    cy.get(Locators.Registration.passReg).type('1' + userData.randomPassword);
+    cy.get(Locators.Registration.passRegConfirm).type('1' + userData.randomPassword);
     cy.get(Locators.Registration.terms).click();
     cy.get(Locators.Register.submit).click();
 
