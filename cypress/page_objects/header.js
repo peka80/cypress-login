@@ -12,7 +12,7 @@ class Header {
   };
 
   get allGallBtn() {
-    return cy.get(".ml-auto > :nth-child(0) > .nav-link");
+    return cy.get(".nav-link").eq(0);
   };
 
   get logoutBtn() {
