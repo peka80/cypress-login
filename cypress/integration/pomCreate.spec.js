@@ -2,6 +2,7 @@
 
 import { authLogin } from '../page_objects/authLogin';
 import { header } from '../page_objects/header';
+import { createGal } from '../page_objects/createGal';
 
 describe('POM Create gallery', () => {
 
@@ -15,15 +16,14 @@ describe('POM Create gallery', () => {
     header.loginBtn.click();
     authLogin.login(validEmail, validPass);
     cy.url().should('not.contains', '/login');
-  });
 
-  it('Create gallery page', () => {
     header.createBtn.click();
     cy.url().should('contains', '/create');
   });
 
-  it('All gallery page', () => {
-    header.allGallBtn.click();
-    cy.url().should('contains', '/');
+  it('', () => {
+
   });
+
+
 });

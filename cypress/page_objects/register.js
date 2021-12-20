@@ -23,6 +23,14 @@ class UserRegistration {
     return cy.get("input[type='checkbox']");
   }
 
+  get errMsg() {
+    return cy.get(".alert");
+  }
+
+  get regTitle() {
+    return cy.get(".title-style");
+  }
+
   get registerBtn() {
     return cy.get("button[type='submit']");
   }

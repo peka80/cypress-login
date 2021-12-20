@@ -15,6 +15,12 @@ class AuthLogin {
     return cy.get("a[role='button ']");
   }
 
+  get errMsg() {
+    return cy.get(".alert");
+  }
+
+
+
   login(email, pass) {
     this.emailInput.clear().type(email);
     this.passwordInput.clear().type(pass);

@@ -1,0 +1,10 @@
+{
+  "validationMsg": {
+    "emailTaken": "The email has already been taken.",
+    "passFormat": "The password format is invalid.",
+    "pass8Char": "The password must be at least 8 characters.",
+    "confMissmatch": "The password confirmation does not match.",
+    "firstNameField": "The first name field is required.",
+    "lastNameField": "The last name field is required."
+  }
+}

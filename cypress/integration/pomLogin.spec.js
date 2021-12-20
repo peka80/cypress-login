@@ -2,6 +2,7 @@
 
 import { authLogin } from '../page_objects/authLogin';
 import { header } from '../page_objects/header';
+import { galleryPage } from '../page_objects/galleryPage';
 
 const faker = require("faker");
 
@@ -17,12 +18,19 @@ describe('POM login', () => {
 
   before('visit app', () => {
     cy.visit('/')
-    cy.url().should('contains', 'gallery-app')
+    cy.url().should('include', 'gallery-app')
   });
 
-  it('login with invalid credentials', () => {
+  it.only('login with invalid credentials', () => {
     header.loginBtn.click();
-    authLogin.login(userData.randomEmail, userData.randomPassword)
+    cy.contains('Please login');
+
+    authLogin.login(userData.randomEmail, userData.randomPassword);
+
+    authLogin.errMsg.should('be.visible');
+    authLogin.errMsg.should('have.text', 'Bad Credentials');
+    authLogin.errMsg.should('have.css', 'background-color', 'rgb(248, 215, 218)');
+    header.loginBtn.should('exist');
     cy.url().should('contains', '/login');
   });
 
@@ -39,4 +47,3 @@ describe('POM login', () => {
   });
 
 });
-
