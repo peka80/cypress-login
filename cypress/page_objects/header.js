@@ -7,6 +7,14 @@ class Header {
     return cy.get("a[href='/register']");
   };
 
+  get createBtn() {
+    return cy.get("a[href='/create']");
+  };
+
+  get allGallBtn() {
+    return cy.get(".nav-link").eq(0);
+  };
+
   get logoutBtn() {
     return cy.get("a[role='button ']");
   };
