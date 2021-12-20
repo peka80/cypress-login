@@ -17,8 +17,13 @@ describe('POM Create gallery', () => {
     cy.url().should('not.contains', '/login');
   });
 
-  it('login with valid credentials', () => {
+  it('Create gallery page', () => {
     header.createBtn.click();
     cy.url().should('contains', '/create');
+  });
+
+  it('All gallery page', () => {
+    header.allGallBtn.click();
+    cy.url().should('contains', '/');
   });
 });
