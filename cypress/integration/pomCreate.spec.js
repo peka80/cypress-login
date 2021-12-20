@@ -11,18 +11,14 @@ describe('POM Create gallery', () => {
   before('visit app', () => {
     cy.visit('/')
     cy.url().should('contains', 'gallery-app')
+
+    header.loginBtn.click();
+    authLogin.login(validEmail, validPass);
+    cy.url().should('not.contains', '/login');
   });
 
   it('login with valid credentials', () => {
-    header.loginBtn.click();
-    cy.url().should('contains', '/login');
-
-    authLogin.login(validEmail, validPass);
-    cy.url().should('not.contains', '/login');
-
     header.createBtn.click();
     cy.url().should('contains', '/create');
   });
-
 });
-
