@@ -7,6 +7,10 @@ class Header {
     return cy.get("a[href='/register']");
   };
 
+  get myGallBtn() {
+    return cy.get("a[href='/my-galleries']");
+  }
+
   get createBtn() {
     return cy.get("a[href='/create']");
   };
