@@ -47,10 +47,6 @@ describe('POM All Galleries', () => {
     allGallery.galleryCard.should('have.length', 10);
   });
 
-  it('Load more button', () => {
-    allGallery.loadBtn.should('exist');
-  });
-
   it('Load More button to load another 10 galleries', () => {
     allGallery.loadBtn.should('exist');
 
