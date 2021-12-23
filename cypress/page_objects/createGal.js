@@ -11,20 +11,27 @@ class CreateGallery {
     return cy.get('input[type="url"]');
   }
 
+  get inputBtn() {
+    return cy.get('.input-buttons').eq(0);
+  }
+
   get addImgBtn() {
-    return cy.get('button[button]').contains('Add image');
+    return cy.get('button[type="button"]');
   }
 
   get submitBtn() {
     return cy.get('.btn').eq(0);
   }
 
-  get submitBtn() {
+  get cancelBtn() {
     return cy.get('.btn').eq(1);
   }
 
-  create(title, descritpion, addImg) {
-
+  oneImageGallery(title, descript, imgUrl) {
+    this.titleInput.clear().type(title);
+    this.descriptInput.clear().type(descript);
+    this.imgUrl.clear().type(imgUrl);
+    this.submitBtn.click();
   }
 
 }
