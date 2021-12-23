@@ -11,6 +11,10 @@ class AllGallery {
     return cy.get('.cell');
   }
 
+  get headingAll() {
+    return cy.get('h1');
+  }
+
 }
 
 export const allGallery = new AllGallery();

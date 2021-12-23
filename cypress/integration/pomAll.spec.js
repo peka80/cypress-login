@@ -20,7 +20,7 @@ describe('POM All Galleries', () => {
     header.allGallBtn.should('exist');
     header.createBtn.should('not.exist');
     header.myGallBtn.should('not.exist');
-    cy.get('h1').should('have.text', 'All Galleries');
+    allGallery.headingAll.should('have.text', 'All Galleries');
   });
 
   it('All galleries - logged in user navigation header', () => {
@@ -28,14 +28,14 @@ describe('POM All Galleries', () => {
     cy.url().should('contains', '/login');
 
     authLogin.login(validEmail, validPass);
-    cy.url().should('contains', '/');
+    cy.url().should('not.include', '/login');
 
     header.loginBtn.should('not.exist');
     header.registerBtn.should('not.exist');
     header.allGallBtn.should('exist');
     header.createBtn.should('exist');
     header.myGallBtn.should('exist');
-    cy.get('h1').should('have.text', 'All Galleries');
+    allGallery.headingAll.should('have.text', 'All Galleries');
   });
 
   it('Search field', () => {
@@ -51,7 +51,9 @@ describe('POM All Galleries', () => {
     allGallery.loadBtn.should('exist');
   });
 
-  it.only('Load More button to load another 10 galleries', () => {
+  it('Load More button to load another 10 galleries', () => {
+    allGallery.loadBtn.should('exist');
+
     allGallery.galleryCard.should('have.length', 10);
     allGallery.loadBtn.click();
     allGallery.galleryCard.should('have.length', 20);
