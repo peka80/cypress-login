@@ -5,6 +5,8 @@
     "pass8Char": "The password must be at least 8 characters.",
     "confMissmatch": "The password confirmation does not match.",
     "firstNameField": "The first name field is required.",
-    "lastNameField": "The last name field is required."
+    "lastNameField": "The last name field is required.",
+    "wrongImgFormat": "Wrong format of image",
+    "titleField": "The title field is required."
   }
 }
