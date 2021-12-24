@@ -1,3 +1,8 @@
 {
-  "baseUrl": "https://gallery-app.vivifyideas.com/"
+  "baseUrl": "https://gallery-app.vivifyideas.com/",
+  "video": false,
+  "env": {
+    "validUserEmail": "petar.dragovic@gmail.com",
+    "validUserPass": "peksel2002"
+  }
 }

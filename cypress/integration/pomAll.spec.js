@@ -4,15 +4,16 @@ import { allGallery } from "../page_objects/allGallery";
 
 describe('POM All Galleries', () => {
 
-  let validEmail = 'petar.dragovic@gmail.com';
-  let validPass = 'peksel2002';
-
-  before('Visit app gallery', () => {
-    cy.visit('/');
-    cy.url().should('include', 'gallery-app');
+  before('login via backend', () => {
+    cy.loginViaBackend();
   });
 
-  it('All galleries - logged out user navigation header', () => {
+  it('assert login', () => {
+    cy.visit('/');
+    header.loginBtn.should('not.exist');
+  });
+
+  xit('All galleries - logged out user navigation header', () => {
     cy.url().should('contains', '/');
 
     header.loginBtn.should('exist');
@@ -23,7 +24,7 @@ describe('POM All Galleries', () => {
     allGallery.headingAll.should('have.text', 'All Galleries');
   });
 
-  it('All galleries - logged in user navigation header', () => {
+  xit('All galleries - logged in user navigation header', () => {
     header.loginBtn.click();
     cy.url().should('contains', '/login');
 
@@ -38,16 +39,16 @@ describe('POM All Galleries', () => {
     allGallery.headingAll.should('have.text', 'All Galleries');
   });
 
-  it('Search field', () => {
+  xit('Search field', () => {
     allGallery.searchField.should('exist');
     allGallery.searchField.invoke('attr', 'placeholder').should('contain', 'Search...');
   });
 
-  it('Number of galleries has to be 10', () => {
+  xit('Number of galleries has to be 10', () => {
     allGallery.galleryCard.should('have.length', 10);
   });
 
-  it('Load More button to load another 10 galleries', () => {
+  xit('Load More button to load another 10 galleries', () => {
     allGallery.loadBtn.should('exist');
 
     allGallery.galleryCard.should('have.length', 10);
