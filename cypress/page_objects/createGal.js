@@ -27,6 +27,10 @@ class CreateGallery {
     return cy.get('.btn').eq(1);
   }
 
+  get errorMsg() {
+    return cy.get('.alert');
+  }
+
   oneImageGallery(title, descript, imgUrl) {
     this.titleInput.clear().type(title);
     this.descriptInput.clear().type(descript);

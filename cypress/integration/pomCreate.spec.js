@@ -3,6 +3,8 @@
 import { authLogin } from '../page_objects/authLogin';
 import { header } from '../page_objects/header';
 import { createGallery } from '../page_objects/createGal';
+import { allGallery } from '../page_objects/allGallery';
+import { validationMsg } from '../fixtures/validationMsg.json'
 
 const faker = require("faker");
 
@@ -17,8 +19,8 @@ describe('POM Create gallery', () => {
   let imageUrl3 = 'https://cdn.pixabay.com/photo/2016/11/29/11/39/computer-1869236_960_720.jpg';
 
   let userData = {
-    image: faker.image.city() + '.jpg',
-    image2: faker.image.imageUrl() + '.jpg'
+    image: faker.image.city() + '.jpeg',
+    image2: faker.image.imageUrl() + '.gif'
   }
 
 
@@ -34,14 +36,34 @@ describe('POM Create gallery', () => {
     cy.url().should('contains', '/create');
   });
 
-  it.only('Create new gallery with one image', () => {
+  xit('Create new gallery with .gif image format', () => {
+    createGallery.oneImageGallery(title, descript, userData.image2);
+
+
+    cy.url().should('include', '/create');
+    createGallery.errorMsg.should('have.text', validationMsg.wrongImgFormat);
+    createGallery.errorMsg.should('have.css', 'background-color', 'rgb(248, 215, 218)')
+    allGallery.headingAll.should('not.have.text', 'All Galleries');
+  });
+
+  it.only('Create new gallery without title (all-space)', () => {
+    createGallery.oneImageGallery(' ', descript, imageUrl1);
+
+
+    cy.url().should('include', '/create');
+    createGallery.errorMsg.should('have.text', validationMsg.titleField);
+    createGallery.errorMsg.should('have.css', 'background-color', 'rgb(248, 215, 218)')
+    allGallery.headingAll.should('not.have.text', 'All Galleries');
+  });
+
+  xit('Create new gallery with one image', () => {
     createGallery.oneImageGallery(title, descript, imageUrl1);
 
     cy.url().should('not.include', '/create');
-    cy.get('h1').should('have.text', 'All Galleries');
+    allGallery.headingAll.should('have.text', 'All Galleries');
   });
 
-  it('Create new gallery with 3 images', () => {
+  xit('Create new gallery with 3 images', () => {
     createGallery.titleInput.type(title);
     createGallery.descriptInput.type(descript);
     createGallery.imgUrl.type(imageUrl1);
@@ -53,7 +75,7 @@ describe('POM Create gallery', () => {
     createGallery.submitBtn.click();
 
     cy.url().should('not.include', '/create');
-    // .should('have.text', 'All Galleries');
+    allGallery.headingAll.should('have.text', 'All Galleries');
   });
 
 });
