@@ -36,7 +36,7 @@ describe('POM Create gallery', () => {
     cy.url().should('contains', '/create');
   });
 
-  xit('Create new gallery with .gif image format', () => {
+  it('Create new gallery with .gif image format', () => {
     createGallery.oneImageGallery(title, descript, userData.image2);
 
 
@@ -46,7 +46,7 @@ describe('POM Create gallery', () => {
     allGallery.headingAll.should('not.have.text', 'All Galleries');
   });
 
-  it.only('Create new gallery without title (all-space)', () => {
+  it('Create new gallery without title (all-space)', () => {
     createGallery.oneImageGallery(' ', descript, imageUrl1);
 
 
@@ -56,14 +56,14 @@ describe('POM Create gallery', () => {
     allGallery.headingAll.should('not.have.text', 'All Galleries');
   });
 
-  xit('Create new gallery with one image', () => {
+  it('Create new gallery with one image', () => {
     createGallery.oneImageGallery(title, descript, imageUrl1);
 
     cy.url().should('not.include', '/create');
     allGallery.headingAll.should('have.text', 'All Galleries');
   });
 
-  xit('Create new gallery with 3 images', () => {
+  it('Create new gallery with 3 images', () => {
     createGallery.titleInput.type(title);
     createGallery.descriptInput.type(descript);
     createGallery.imgUrl.type(imageUrl1);
