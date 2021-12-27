@@ -32,7 +32,7 @@ describe('POM Create gallery', () => {
     cy.url().should('contains', '/create');
   });
 
-  it('Create new gallery with .gif image format', () => {
+  xit('Create new gallery with .gif image format', () => {
     createGallery.oneImageGallery(title, descript, userData.image2);
 
 
@@ -42,7 +42,7 @@ describe('POM Create gallery', () => {
     allGallery.headingAll.should('not.have.text', 'All Galleries');
   });
 
-  it('Create new gallery without title (all-space)', () => {
+  xit('Create new gallery without title (all-space)', () => {
     createGallery.oneImageGallery(' ', descript, imageUrl1);
 
 
@@ -70,7 +70,8 @@ describe('POM Create gallery', () => {
     allGallery.headingAll.should('have.text', 'All Galleries');
   });
 
-  it('visit and comment specific gallery', () => {
+
+  xit('visit and comment specific gallery', () => {
     cy.intercept({
       method: 'POST',
       url: 'https://gallery-api.vivifyideas.com/api/comments'
@@ -88,7 +89,7 @@ describe('POM Create gallery', () => {
     });
   });
 
-  it('create gallery via backend', () => {
+  xit('create gallery via backend', () => {
     cy.request({
       method: 'POST',
       url: 'https://gallery-api.vivifyideas.com/api/galleries',
@@ -108,7 +109,7 @@ describe('POM Create gallery', () => {
 
   });
 
-  it('Create new gallery with 3 images', () => {
+  xit('Create new gallery with 3 images', () => {
     createGallery.titleInput.type(title);
     createGallery.descriptInput.type(descript);
     createGallery.imgUrl.type(imageUrl1);
