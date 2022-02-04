@@ -1,4 +1,3 @@
-/// <reference types="Cypress" />
 
 import { header } from '../page_objects/header';
 import { register } from '../page_objects/register';

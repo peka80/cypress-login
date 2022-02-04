@@ -21,7 +21,7 @@ describe('POM login', () => {
     cy.url().should('include', 'gallery-app')
   });
 
-  xit('login with invalid credentials', () => {
+  it.only('login with invalid credentials', () => {
     header.loginBtn.click();
     cy.contains('Please login');
 
@@ -34,7 +34,7 @@ describe('POM login', () => {
     cy.url().should('contains', '/login');
   });
 
-  it.only('login with valid credentials', () => {
+  it('login with valid credentials', () => {
     cy.intercept({
       method: 'POST',
       url: 'https://gallery-api.vivifyideas.com/api/auth/login',
@@ -52,7 +52,7 @@ describe('POM login', () => {
     cy.url().should('not.contains', '/login');
   });
 
-  xit('logout', () => {
+  it('logout', () => {
     header.logoutBtn.click();
   });
 
